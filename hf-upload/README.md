@@ -86,6 +86,8 @@ print(tok.decode(out[0, inputs["input_ids"].shape[1]:], skip_special_tokens=True
 
 ## Training
 
+Training code: [oleggator/lfm3-transaction-categorization](https://github.com/oleggator/lfm3-transaction-categorization)
+
 - Data: 10,000 examples (1,000 per category), sampled from the 4.5M-row dataset after dropping duplicates and descriptions with conflicting labels. Input is the description only; country and currency are not used.
 - LoRA: r=16, alpha=32, dropout 0.05, all linear layers.
 - SFT with TRL: 1 epoch, batch size 16, learning rate 2e-4 with a cosine schedule, loss on assistant tokens only.
