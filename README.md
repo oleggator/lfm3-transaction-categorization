@@ -12,5 +12,6 @@ Requires [uv](https://docs.astral.sh/uv/), an AMD GPU with ROCm (torch is pinned
 make install   # dependencies
 make           # download data, train, evaluate adapter and base model
 make gguf      # merge adapter, export Q8_0 GGUF via llama.cpp
+make eval-gguf # build llama.cpp, evaluate the GGUF on CPU
 make push      # upload adapter and GGUF to the Hugging Face Hub
 ```

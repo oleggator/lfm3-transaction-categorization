@@ -39,8 +39,9 @@ Exact-match accuracy on 2,000 held-out examples (200 per category). No eval desc
 |---|---|
 | LFM3-1.7B (base) | 5.95% |
 | This adapter (bf16) | **99.0%** |
+| `lfm3-txn-q8_0.gguf` (llama.cpp) | **99.0%** |
 
-The base model often answers the first listed category or explains its answer instead of giving only the category name. The GGUF was not evaluated separately.
+The base model often answers the first listed category or explains its answer instead of giving only the category name. The GGUF runs at about 430 ms per example on CPU (llama-server, 16 cores, no GPU).
 
 ## Prompt format
 
@@ -54,7 +55,7 @@ Categories: Charity & Donations; Entertainment & Recreation; Financial Services;
 ### llama.cpp
 
 ```sh
-llama-cli -m lfm3-txn-q8_0.gguf --reasoning off -n 16 --temp 0 \
+llama-cli -m lfm3-txn-q8_0.gguf --reasoning off -st -n 16 --temp 0 \
   -sys "Classify the bank transaction into exactly one category. Reply with the category name only.
 Categories: Charity & Donations; Entertainment & Recreation; Financial Services; Food & Dining; Government & Legal; Healthcare & Medical; Income; Shopping & Retail; Transportation; Utilities & Services" \
   -p "Uber Ride"
