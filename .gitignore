@@ -1,0 +1,11 @@
+.env
+.venv/
+.uv-cache/
+.hf-cache/
+.claude/
+__pycache__/
+data/
+llama.cpp/
+lfm3-txn-lora/
+lfm3-txn-merged/
+*.gguf

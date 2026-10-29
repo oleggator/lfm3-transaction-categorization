@@ -1,0 +1,25 @@
+[project]
+name = "lfm3-transaction-categorization"
+version = "0.1.0"
+requires-python = "==3.14.*"
+dependencies = [
+    "torch==2.15.0",
+    "transformers>=5.12.1",
+    "trl",
+    "peft",
+    "datasets",
+    "accelerate",
+    "pandas",
+    "pyarrow",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-rocm" }
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm10.0"
+explicit = false
+
+[tool.uv]
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
